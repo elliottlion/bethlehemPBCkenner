@@ -165,6 +165,17 @@ section {
     box-shadow: 0 2px 6px rgba(91, 104, 88, 0.1);
 }
 
+.group-photo {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+    object-fit: cover;
+}
+
 .mission-box {
     background: linear-gradient(135deg, var(--light-green) 0%, var(--off-white) 100%);
     padding: 1.5rem;
