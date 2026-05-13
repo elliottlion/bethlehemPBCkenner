@@ -11,7 +11,7 @@
         <div class="header-container">
             <h1>Bethlehem <span class="secret-link" onclick="checkPassword()">P</span>rimitive Baptist Church</h1>
             <div class="nav-links">
-                <a href="index.html">Home</a>
+                <a href="#" id="homeLink">Home</a>
                 <a href="belief.html">What We Believe</a>
                 <a href="message.html">Message from the Pastor</a>
                 <a href="event.html">Events and Meetings</a>
@@ -20,7 +20,7 @@
     </header>
 
     <main>
-        <h1>Welcome</h1>
+        <h1 id="welcome">Welcome</h1>
         <p>Welcome to our church! We are located in Kenner, Louisiana, close to the New Orleans international airport, and we would love for you to visit us!  </p>
         <img src="assets\pbcGroupPhoto.jpg" alt="Group Photo of Bethlehem Primitive Baptist Church" class="group-photo">
         <section>
@@ -61,6 +61,17 @@
                 alert("Incorrect password!");
             }
         }
+        document.getElementById("homeLink").addEventListener("click", function (e) 
+        {
+        e.preventDefault();
+            const welcome = document.getElementById("welcome");
+            const offset = welcome.getBoundingClientRect().top + window.scrollY - 5;
+            window.scrollTo(
+                {
+                top: offset,
+                behavior: "smooth"
+                });
+        });
     </script>
 </body>
 </html>
