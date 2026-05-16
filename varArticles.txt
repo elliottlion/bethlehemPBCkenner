@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What We Believe - Bethlehem Primitive Baptist Church</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            
+            <h1>Bethlehem <span class="secret-link" onclick="checkPassword()">P</span>rimitive Baptist Church</h1>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="belief.html">What We Believe</a>
+                <a href="message.html">Message from the Pastor</a>
+                <a href="event.html">Events and Meetings</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        
+        <section>
+            <h2>Our Articles of Faith</h2>
+            <div class="mission-box">
+                <p>
+                    <ol>
+                        <li>We believe in only one true and living God, and that a trinity of persons in the God-head, the Father, Son, and the Holy Ghost, the same in essence, equal in power and glory.</li>
+                        <li>We believe that the Scriptures of the Old and New Testaments, given by inspiration of God, are divine authority and the only rule of faith and practice.</li>
+                        <li>We believe in the fall of Adam, in the imputation of his sins to all his posterity, in the total depravity of human nature, and in man's inability to restore himself to the favor of god.</li>
+                        <li>We believe in the everlasting love of God for his people, in the eternal, unconditional election of a definite number of the human family to grace and glory.</li>
+                        <li>We believe that sinners are only justified in the sight of God by inputed righteousness of Jesus Christ, which is unto and upon all them that believe.</li>
+                        <li>We believe all those who were chosen in Christ before the foundation of the world are, in time, effectually called regenerated, concerted, and sanctified, and kept by the power of God through faith unto salvation.</li>
+                        <li>We believe there is one mediator between God and man, the man Christ Jesus, who, by the satisfaction he made to law and justice in becoming an offering for sin, hath by His most precious blood redeemed the elect from under the curse of the law, that they might be holy and without blame before him in love.</li>
+                        <li>We believe that good works are fruits of faith, and following after justification, are evidences of a gracious state, and it is the duty of all believers to perform them from a principle of love.</li>
+                        <li>We believe in the resurrection of the dead and a general judgement; that the happiness of the righteous and the punishment of the wicked will be everlasting.</li>
+                    </ol>
+                </p>
+            </div>
+        </section>
+
+        <div class="content-section">
+            <p>If you have any other questions about our beliefs, please feel free join us and ask after church!</p>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-row">
+                <span class="footer-label">Next Meeting:</span>
+                <span id="nextMeetingPlace">Loading meeting place...</span>
+            </div>
+            <div class="footer-row">
+                <span class="footer-label">When:</span>
+                <span id="nextMeetingTime">Loading time...</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function checkPassword() {
+            const password = prompt("Enter password to access the admin area:");
+            if (password === "joe123") {
+                window.location.href = "Pastor.html";
+            } else if (password !== null) {
+                alert("Incorrect password!");
+            }
+        }
+    </script>
+</body>
+</html>

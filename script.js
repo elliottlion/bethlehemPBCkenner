@@ -154,3 +154,45 @@ function initializeMeetingFooter() {
 
     loadMeetingPlace();
 }
+
+const articles = 
+    [
+        "1. We believe in only one true and living God, and that a trinity of persons in the God-head, the Father, Son, and the Holy Ghost, the same in essence, equal in power and glory.",
+        "2. We believe that the Scriptures of the Old and New Testaments, given by inspiration of God, are divine authority and the only rule of faith and practice.",
+        "3. We believe in the fall of Adam, in the imputation of his sins to all his posterity, in the total depravity of human nature, and in man's inability to restore himself to the favor of god.",
+        "4. We believe in the everlasting love of God for his people, in the eternal, unconditional election of a definite number of the human family to grace and glory.",
+        "5. We believe that sinners are only justified in the sight of God by inputed righteousness of Jesus Christ, which is unto and upon all them that believe.",
+        "6. We believe all those who were chosen in Christ before the foundation of the world are, in time, effectually called regenerated, concerted, and sanctified, and kept by the power of God through faith unto salvation.",
+        "7. We believe there is one mediator between God and man, the man Christ Jesus, who, by the satisfaction he made to law and justice in becoming an offering for sin, hath by His most precious blood redeemed the elect from under the curse of the law, that they might be holy and without blame before him in love.",
+        "8. We believe that good works are fruits of faith, and following after justification, are evidences of a gracious state, and it is the duty of all believers to perform them from a principle of love.",
+        "9. We believe in the resurrection of the dead and a general judgement; that the happiness of the righteous and the punishment of the wicked will be everlasting.",
+
+    ];
+
+let index = 0;
+
+const contentBox = document.getElementById("article-content");
+const nextBtn = document.getElementById("next-article");
+const prevBtn = document.getElementById("prev-article");
+
+function showArticle(i) {
+    contentBox.style.opacity = 0;
+    setTimeout(() => {
+        contentBox.textContent = articles[i];
+        contentBox.style.opacity = 1;
+    }, 200);
+}
+
+nextBtn.addEventListener("click", () => {
+    index = (index + 1) % articles.length;
+    showArticle(index);
+});
+
+prevBtn.addEventListener("click", () => {
+    index = (index - 1 + articles.length) % articles.length;
+    showArticle(index);
+});
+
+// Load first article
+showArticle(index);
+

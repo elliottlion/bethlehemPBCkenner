@@ -268,3 +268,45 @@ p {
     color: var(--text-light);
     margin-bottom: 1rem;
 }
+#articles-box {
+    max-width: 700px;
+    margin: 2rem auto;
+    background: white;
+    border: 1px solid var(--light-green);
+    border-radius: 6px;
+    padding: 2rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+#articles-box h2 {
+    border-bottom: 1px solid var(--light-green);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.25rem;
+    font-weight: 600;
+}
+
+#article-content {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    min-height: 120px;
+    transition: opacity 0.4s ease;
+}
+
+#article-controls {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+#article-controls button {
+    padding: 0.5rem 1rem;
+    background: var(--light-green);
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+}
+
+#article-controls button:hover {
+    background: var(--dark-green);
+}
