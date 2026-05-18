@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const DATA_FILE = path.join(__dirname, "data.json");
+const DATA_FILE = path.join(process.env.TMPDIR || "/tmp", "pbc-data.json");
 
 function readData() {
     try {
