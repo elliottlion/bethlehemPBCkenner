@@ -1,0 +1,7 @@
+{
+  "name": "pbc-api",
+  "version": "1.0.0",
+  "description": "Azure Functions API for PBC",
+  "main": "index.js",
+  "license": "elliott"
+}
