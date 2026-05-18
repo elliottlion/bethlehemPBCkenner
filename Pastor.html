@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<script>
+    if (!localStorage.getItem("adminToken")) {
+        window.location.href = "admin.html";
+    }
+</script>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
