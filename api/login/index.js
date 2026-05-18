@@ -1,29 +1,9 @@
-const fs = require("fs");
-const path = require("path");
-
-const DATA_FILE = path.join(process.env.TMPDIR || "/tmp", "pbc-data.json");
-
-function readData() {
-    try {
-        const raw = fs.readFileSync(DATA_FILE, "utf8");
-        return JSON.parse(raw || "{}");
-    } catch (err) {
-        return {};
-    }
-}
-
-function writeData(data) {
-    fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2), "utf8");
-}
+const { DefaultAzureCredential } = require("@azure/identity");
+const { SecretClient } = require("@azure/keyvault-secrets");
 
 module.exports = async function (context, req) {
     const adminPassword = process.env.ADMIN_PASSWORD;
-    const { password } = req.body || {};
-
-    if (!adminPassword) {
-        context.res = { status: 500, body: "Server configuration missing ADMIN_PASSWORD." };
-        return;
-    }
+    const { password } = req.body;
 
     if (!password) {
         context.res = { status: 400, body: "Missing password" };
@@ -35,14 +15,15 @@ module.exports = async function (context, req) {
         return;
     }
 
+    // Create a simple session token
     const token = Buffer.from(Date.now().toString()).toString("base64");
-    const data = readData();
-    data.adminToken = token;
-    writeData(data);
+
+    // Store token in environment variable
+    process.env.CURRENT_ADMIN_TOKEN = token;
 
     context.res = {
         status: 200,
-        body: { token },
+        body: JSON.stringify({ token }),
         headers: { "Content-Type": "application/json" }
     };
 };

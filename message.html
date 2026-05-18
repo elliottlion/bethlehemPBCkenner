@@ -49,10 +49,10 @@
 
     <script src="script.js"></script>
     <script>
-// Load the pastor's message from the save function
+// Load the pastor's message from data.json
 async function loadMessage() {
     try {
-        const res = await fetch("/api/save");
+        const res = await fetch("/api/save/data.json");
         if (!res.ok) return;
 
         const data = await res.json();

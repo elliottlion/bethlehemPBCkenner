@@ -51,10 +51,10 @@ if (!localStorage.getItem("adminToken")) {
     window.location.href = "admin.html";
 }
 
-// Load existing data from the save function
+// Load existing data.json from the save function folder
 async function loadData() {
     try {
-        const res = await fetch("/api/save");
+        const res = await fetch("/api/save/data.json");
         if (!res.ok) return;
 
         const data = await res.json();
@@ -62,7 +62,7 @@ async function loadData() {
         document.getElementById("pastorMessage").value = data.message || "";
         document.getElementById("meetingPlace").value = data.meeting || "";
     } catch (err) {
-        console.log("No existing save data yet.");
+        console.log("No existing data.json yet.");
     }
 }
 
