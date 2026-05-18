@@ -45,6 +45,71 @@
         </div>
     </main>
 
-    <script src="script.js"></script>
+    <script>
+// Redirect if not logged in
+if (!localStorage.getItem("adminToken")) {
+    window.location.href = "admin.html";
+}
+
+// Load existing data from the save function
+async function loadData() {
+    try {
+        const res = await fetch("/api/save");
+        if (!res.ok) return;
+
+        const data = await res.json();
+
+        document.getElementById("pastorMessage").value = data.message || "";
+        document.getElementById("meetingPlace").value = data.meeting || "";
+    } catch (err) {
+        console.log("No existing save data yet.");
+    }
+}
+
+loadData();
+
+// Save message
+document.getElementById("submitMessage").addEventListener("click", async () => {
+    const message = document.getElementById("pastorMessage").value;
+    const meeting = document.getElementById("meetingPlace").value;
+
+    const res = await fetch("/api/save", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "x-admin-token": localStorage.getItem("adminToken")
+        },
+        body: JSON.stringify({ message, meeting })
+    });
+
+    if (res.status === 200) {
+        alert("Message saved!");
+    } else {
+        alert("Error saving message.");
+    }
+});
+
+// Save meeting place
+document.getElementById("submitMeeting").addEventListener("click", async () => {
+    const message = document.getElementById("pastorMessage").value;
+    const meeting = document.getElementById("meetingPlace").value;
+
+    const res = await fetch("/api/save", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "x-admin-token": localStorage.getItem("adminToken")
+        },
+        body: JSON.stringify({ message, meeting })
+    });
+
+    if (res.status === 200) {
+        alert("Meeting place saved!");
+    } else {
+        alert("Error saving meeting place.");
+    }
+});
+</script>
+
 </body>
 </html>

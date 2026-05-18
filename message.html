@@ -24,7 +24,8 @@
         <section>
             <h2>Message from the Pastor</h2>
             <div class="mission-box">
-                <p>Content from the pastor goes here.</p>
+                <p id="pastorMessageDisplay">Loading message...</p>
+
             </div>
         </section>
 
@@ -48,14 +49,24 @@
 
     <script src="script.js"></script>
     <script>
-        function checkPassword() {
-            const password = prompt("Enter password to access the admin area:");
-            if (password === "joe123") {
-                window.location.href = "Pastor.html";
-            } else if (password !== null) {
-                alert("Incorrect password!");
-            }
-        }
-    </script>
+// Load the pastor's message from the save function
+async function loadMessage() {
+    try {
+        const res = await fetch("/api/save");
+        if (!res.ok) return;
+
+        const data = await res.json();
+
+        document.getElementById("pastorMessageDisplay").textContent =
+            data.message || "No message available.";
+    } catch (err) {
+        document.getElementById("pastorMessageDisplay").textContent =
+            "Unable to load message.";
+    }
+}
+
+loadMessage();
+</script>
+
 </body>
 </html>

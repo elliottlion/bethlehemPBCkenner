@@ -103,10 +103,10 @@ async function loadMeetingPlace() {
     if (!placeEl) return;
 
     try {
-        const response = await fetch(MEETING_FILE);
+        const response = await fetch('/api/save');
         if (response.ok) {
-            const text = (await response.text()).trim();
-            placeEl.textContent = text || 'Meeting place not set';
+            const data = await response.json();
+            placeEl.textContent = data.meeting || 'Meeting place not set';
             return;
         }
     } catch (error) {
