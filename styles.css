@@ -67,9 +67,7 @@ nav {
     transition: background-color 0.3s ease;
 }
 
-.nav-links a:hover {
-    background-color: var(--deep-green);
-}
+
 
 /* Main Content */
 main {
@@ -254,7 +252,7 @@ section {
 
 /* Utility Classes */
 a {
-    color: var(--sage-green);
+    color: var(--off-white);
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -310,3 +308,4 @@ p {
 #article-controls button:hover {
     background: var(--dark-green);
 }
+
