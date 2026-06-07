@@ -14,7 +14,7 @@
                 <a href="#" id="homeLink">Home</a>
                 <a href="belief.html">What We Believe</a>
                 <a href="message.html">Message from the Pastor</a>
-                <a href="event.html">Events and Meetings</a>
+               <!-- <a href="event.html">Events and Meetings</a> -->
             </div>
         </div>
     </header>
@@ -52,26 +52,6 @@
     </footer>
 
     <script src="script.js"></script>
-    <script>
-        function checkPassword() {
-            const password = prompt("Enter password to access the admin area:");
-            if (password === "joe123") {
-                window.location.href = "Pastor.html";
-            } else if (password !== null) {
-                alert("Incorrect password!");
-            }
-        }
-        document.getElementById("homeLink").addEventListener("click", function (e) 
-        {
-        e.preventDefault();
-            const welcome = document.getElementById("welcome");
-            const offset = welcome.getBoundingClientRect().top + window.scrollY - 5;
-            window.scrollTo(
-                {
-                top: offset,
-                behavior: "smooth"
-                });
-        });
-    </script>
+   
 </body>
 </html>

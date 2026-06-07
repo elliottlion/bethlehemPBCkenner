@@ -1,5 +1,5 @@
 const API_BASE_URL = 'http://127.0.0.1:3000';
-const PASTOR_FILE = 'PastorMessage.txt';
+const PASTOR_FILE = 'message.txt';
 const MEETING_FILE = 'nextMeeting.txt';
 
 async function saveTextFileViaServer(fileName, content) {

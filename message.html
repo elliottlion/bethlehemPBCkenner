@@ -9,12 +9,12 @@
 <body>
     <header>
         <div class="header-container">
-            <h1>Bethlehem <span class="secret-link" onclick="checkPassword()">P</span>rimitive Baptist Church</h1>
+            <h1>Bethlehem Primitive Baptist Church</h1>
             <div class="nav-links">
                 <a href="index.html">Home</a>
                 <a href="belief.html">What We Believe</a>
                 <a href="message.html">Message from the Pastor</a>
-                <a href="event.html">Events and Meetings</a>
+               <!-- <a href="event.html">Events and Meetings</a> -->
             </div>
         </div>
     </header>
@@ -29,9 +29,7 @@
             </div>
         </section>
 
-        <div class="content-section">
-            <p>Additional message content goes here.</p>
-        </div>
+        
     </main>
 
     <footer class="site-footer">
@@ -49,16 +47,17 @@
 
     <script src="script.js"></script>
     <script>
-// Load the pastor's message from data.json
+// Load the pastor's message directly from message.txt
 async function loadMessage() {
     try {
-        const res = await fetch("/api/save/data.json");
-        if (!res.ok) return;
+        const res = await fetch("message.txt");
+        if (!res.ok) {
+            throw new Error('Failed to fetch message');
+        }
 
-        const data = await res.json();
-
+        const text = await res.text();
         document.getElementById("pastorMessageDisplay").textContent =
-            data.message || "No message available.";
+            text.trim() || "No message available.";
     } catch (err) {
         document.getElementById("pastorMessageDisplay").textContent =
             "Unable to load message.";
