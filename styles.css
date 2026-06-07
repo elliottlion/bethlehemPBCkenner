@@ -308,4 +308,6 @@ p {
 #article-controls button:hover {
     background: var(--dark-green);
 }
-
+#pastorMessageDisplay{
+    white-space: pre-wrap;
+}
