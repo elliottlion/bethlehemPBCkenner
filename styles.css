@@ -311,3 +311,7 @@ p {
 #pastorMessageDisplay{
     white-space: pre-wrap;
 }
+#churchLocation {
+    color: var(--deep-green);
+    font-weight: 600;
+}
